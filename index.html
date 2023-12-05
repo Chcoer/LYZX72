@@ -461,6 +461,7 @@
         textarea3.placeholder = "请输入文本";
         function submitText(textarea, cname, idname) {
             var text = textarea.value;
+            alert(text);
             // alert("您输入的文本是：" + text);
             setCookie(cname, text, 3000);
             var x = document.getElementById(idname);  //查找元素
@@ -481,7 +482,7 @@
                     alert(t);
                 }
             }*/
-            alert(newt);
+            //alert(newt);
             x.innerHTML = newt;    //改变内容
         }
 
