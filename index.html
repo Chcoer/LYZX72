@@ -462,12 +462,14 @@
         function submitText(textarea, cname, idname) {
             var text = textarea.value;
             alert(text);
+            text = text.replace(/\n/g , '_');
             // alert("您输入的文本是：" + text);
             setCookie(cname, text, 3000);
             var x = document.getElementById(idname);  //查找元素
             // alert(getCookie(cname));
+            
             var t = getCookie(cname);
-            alert(t);
+            alert('a\nb');
             //t = textarea.value;
             var newt = t.replace(/_/g, " <br> ");
             /*for(var i=0;i<=lent;i++){
