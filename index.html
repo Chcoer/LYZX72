@@ -5,6 +5,25 @@
     <meta charset="UTF-8">
     <title>Website List</title>
     <script>
+        
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+            }
+            return "";
+        }
+        function gethw(idn,cname){
+            var x = document.getElementById(idn);
+            x.innerHTML = getCookie(cname);
+        }
+
+        gethw('hw1','hw1');
+        gethw('hw2','hw2');
+        gethw('hw3','hw3');
+
         var elementId = "myElement";
         var element = document.getElementById(elementId);
         function openNav() {
@@ -152,7 +171,7 @@
             left: 0%;
             background-repeat: no-repeat;
             transform: translate(0%, 0%);
-            z-index: -1;
+            z-index: -2;
         }
 
         #Title {
@@ -163,7 +182,7 @@
             color: rgb(255, 255, 255);
             position: absolute;
             top: 37%;
-            left: 20%;
+            left: 10%;
         }
 
         #Title2 {
@@ -172,11 +191,12 @@
             color: rgb(190, 190, 190);
             position: absolute;
             top: 62%;
-            left: 25%;
+            left: 15%;
             font-size: 20px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-family: "Comic Sans MS", cursive, sans-serif;
             word-wrap:break-word;
+            text-shadow: 0px 0px 2px rgb(59, 59, 59);
         }
 
         body {
@@ -185,6 +205,7 @@
         }
 
         .sidenav {
+            z-index: 3;
             height: 100%;
             width: 0;
             position: fixed;
@@ -225,6 +246,7 @@
         }
 
         #open {
+            z-index: 3;
             color: white;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-size: larger;
@@ -265,10 +287,25 @@
             color: white;
             font-size: 19px;
         }
+
+        #backgroundc{
+            display: block;
+            width: 100%;
+            height: 100%;
+            filter: blur(3px);
+            background-color: rgba(17, 17, 17, 0.418);
+            position: absolute;
+            left: 0%;
+            top:0%;
+            z-index: -1;
+        }
     </style>
 </head>
 
 <body>
+    <div id="backgroundc">
+
+    </div>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="https://care.seewo.com/">Class</a>
@@ -330,8 +367,8 @@
         </div>
         <h1 id="Title">Home Page</h1>
         <em id="Title2">Website Link List</em>
-        <!--<img id="img1" src="https://baotangguo.cn:8081/" alt="piQ0wAH.png" border="0" />-->
-        <img id="img1" src="https://cdn.luogu.com.cn/upload/image_hosting/8pjx9lu6.png" alt="piQ0wAH.png" border="0" />
+        <img id="img1" src="https://baotangguo.cn:8081/" alt="piQ0wAH.png" border="0" />
+        <!--<img id="img1" src="https://cdn.luogu.com.cn/upload/image_hosting/8pjx9lu6.png" alt="piQ0wAH.png" border="0" />-->
         
     </div>
 
@@ -380,7 +417,7 @@
                 case 5: week1 = '星期五'; break;
                 case 6: week1 = '星期六'; break;
             }
-            var lesson = ["语文","英语","体育","数学","地理","科学","音乐","体活","英语","历史","体育","美术","英语","数学","语文","语文","英语","数学"];
+            var lesson = ["语文","英语","体育","数学","地理","科学","音乐","体活","英语","历史","体育","美术","英语","数学","语文","语文","英语","数学","地理","数学","英语","语文","科学","体育","历史","活动","语文"];
             var list=[520,570,655,705,820,880,930,980,1050];
             var ret = 0;
             var now=hour*60+min;
@@ -461,16 +498,12 @@
         textarea3.placeholder = "请输入文本";
         function submitText(textarea, cname, idname) {
             var text = textarea.value;
-            alert(text);
-            text = text.replace(/\n/g , '_');
             // alert("您输入的文本是：" + text);
             setCookie(cname, text, 3000);
             var x = document.getElementById(idname);  //查找元素
             // alert(getCookie(cname));
-            
             var t = getCookie(cname);
-            alert('a\nb');
-            //t = textarea.value;
+            t = textarea.value;
             var newt = t.replace(/_/g, " <br> ");
             /*for(var i=0;i<=lent;i++){
                 if(t[i]=='_'){
@@ -485,7 +518,7 @@
                     alert(t);
                 }
             }*/
-            //alert(newt);
+            alert(newt);
             x.innerHTML = newt;    //改变内容
         }
 
