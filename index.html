@@ -20,9 +20,14 @@
             x.innerHTML = getCookie(cname);
         }
 
-        gethw('hw1','hw1');
-        gethw('hw2','hw2');
-        gethw('hw3','hw3');
+        var x = document.getElementById('hw1');
+        x.innerText = getCookie('hw1');
+
+        x = document.getElementById('hw2');
+        x.innerText = getCookie('hw2');
+
+        x = document.getElementById('hw3');
+        x.innerText = getCookie('hw3');
 
         var elementId = "myElement";
         var element = document.getElementById(elementId);
