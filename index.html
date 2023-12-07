@@ -19,13 +19,18 @@
         window.onload = function () {
 
             var x = document.getElementById('hw1');
-            x.innerText = getCookie('hw1');
+            var xt = String(getCookie('hw1')).replace(/_/g, " <br> ");
+            alert(xt);
+            x.innerText = xt;
 
             var y = document.getElementById('hw2');
-            y.innerText = getCookie('hw2');
+            var yt = String(getCookie('hw2')).replace(/_/g, " <br> ");
+            y.innerText = yt;
 
             var z = document.getElementById('hw3');
-            z.innerText = getCookie('hw3');
+            var zt = String(getCookie('hw3')).replace(/_/g, " <br> ");
+            z.innerText = zt;
+
 
             //alert(getCookie('hw1'));
 
@@ -39,13 +44,17 @@
         }
 
         var x = document.getElementById('hw1');
-        x.innerText = getCookie('hw1');
+        var xt = String(getCookie('hw1')).replace(/_/g, " <br> ");
+        alert(xt);
+        x.innerText = xt;
 
         var y = document.getElementById('hw2');
-        y.innerText = getCookie('hw2');
+        var yt = String(getCookie('hw2')).replace(/_/g, " <br> ");
+        y.innerText = yt;
 
         var z = document.getElementById('hw3');
-        z.innerText = getCookie('hw3');
+        var zt = String(getCookie('hw3')).replace(/_/g, " <br> ");
+        z.innerText = zt;
 
         var elementId = "myElement";
         var element = document.getElementById(elementId);
@@ -287,10 +296,10 @@
         }
 
         .hw {
-            text-align: center;
+            text-align: left;
             color: white;
             position: relative;
-            left: -20%;
+            left: 15%;
         }
 
         @media screen and (max-height: 450px) {
@@ -440,7 +449,7 @@
                 case 5: week1 = '星期五'; break;
                 case 6: week1 = '星期六'; break;
             }
-            var lesson = ["语文", "英语", "体育", "数学", "地理", "科学", "音乐", "体活", "英语", "历史", "体育", "美术", "英语", "数学", "语文", "语文", "英语", "数学", "地理", "数学", "英语", "语文", "科学", "体育", "历史", "活动", "语文","语文","道法","数学","劳技","集邮","英语","体活","数学","活动"];
+            var lesson = ["语文", "英语", "体育", "数学", "地理", "科学", "音乐", "体活", "英语", "历史", "体育", "美术", "英语", "数学", "语文", "语文", "英语", "数学", "地理", "数学", "英语", "语文", "科学", "体育", "历史", "活动", "语文", "语文", "道法", "数学", "劳技", "集邮", "英语", "体活", "数学", "活动"];
             var list = [520, 570, 655, 705, 820, 880, 930, 980, 1050];
             var ret = 0;
             var now = hour * 60 + min;
@@ -524,12 +533,14 @@
         textarea3.placeholder = "请输入文本";
         function submitText(textarea, cname, idname) {
             var text = textarea.value;
+            text = String(textarea.value).replace(/\n/g, "_");
+            alert(text);
             // alert("您输入的文本是：" + text);
             setCookie(cname, text, 3000);
             var x = document.getElementById(idname);  //查找元素
             // alert(getCookie(cname));
             var t = getCookie(cname);
-            t = textarea.value;
+            //t = textarea.value;
             var newt = t.replace(/_/g, " <br> ");
             /*for(var i=0;i<=lent;i++){
                 if(t[i]=='_'){
@@ -544,7 +555,7 @@
                     alert(t);
                 }
             }*/
-            alert(newt);
+            //alert(newt);
             x.innerHTML = newt;    //改变内容
         }
 
