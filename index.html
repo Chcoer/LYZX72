@@ -31,7 +31,9 @@
             var zt = String(getCookie('hw3')).replace(/_/g, "\n");
             z.innerText = zt;
 
-
+            var backg = document.getElementById('img1');
+            var backgt = String(getCookie("backgroundimgurl"));
+            backg.src = backgt; 
             //alert(getCookie('hw1'));
 
         }
